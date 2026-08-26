@@ -22,7 +22,7 @@
   dialog.innerHTML = `
     <div class="lupafinder-panel">
       <div class="lupafinder-head">
-        <div><p class="lupafinder-eyebrow">Busca simplificada</p><h2 id="lupafinder-title">Encontre o que precisa</h2></div>
+        <div><p class="lupafinder-eyebrow">Lupa_Finder</p><h2 id="lupafinder-title">Encontre o que precisa</h2></div>
         <button class="lupafinder-close" type="button" aria-label="Fechar busca"><i class="ti ti-x" aria-hidden="true"></i></button>
       </div>
       <form class="lupafinder-body" novalidate>
@@ -44,7 +44,7 @@
   launcher.type = 'button';
   launcher.setAttribute('aria-haspopup', 'dialog');
   launcher.setAttribute('aria-label', 'Abrir Lupa Finder');
-  launcher.innerHTML = '<i class="ti ti-search" aria-hidden="true"></i><span class="lupafinder-launcher-label">Buscar</span><small>Ctrl K</small>';
+  launcher.innerHTML = '<i class="ti ti-search" aria-hidden="true"></i>';
   document.body.append(launcher);
 
 
