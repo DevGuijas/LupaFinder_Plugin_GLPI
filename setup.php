@@ -1,16 +1,14 @@
 <?php
 
-use Glpi\Plugin\Hooks;
-
-define('PLUGIN_LUPAFINDER_VERSION', '1.0.1');
+define('PLUGIN_LUPAFINDER_VERSION', '1.1.0');
 
 function plugin_init_lupafinder(): void
 {
     global $PLUGIN_HOOKS;
 
-    $PLUGIN_HOOKS[Hooks::CSRF_COMPLIANT]['lupafinder'] = true;
-    $PLUGIN_HOOKS[Hooks::ADD_CSS]['lupafinder'] = 'css/lupa-finder.css';
-    $PLUGIN_HOOKS[Hooks::ADD_JAVASCRIPT]['lupafinder'] = 'js/lupa-finder.js';
+    $PLUGIN_HOOKS['csrf_compliant']['lupafinder'] = true;
+    $PLUGIN_HOOKS['add_css']['lupafinder'] = ['css/lupa-finder.css'];
+    $PLUGIN_HOOKS['add_javascript']['lupafinder'] = ['js/lupa-finder.js'];
 }
 
 function plugin_version_lupafinder(): array

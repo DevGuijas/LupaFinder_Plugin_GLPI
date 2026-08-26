@@ -15,7 +15,7 @@
 
   const dialog = document.createElement('section');
   dialog.className = 'lupafinder-dialog';
-  dialog.hidden = false;
+  dialog.hidden = true;
   dialog.setAttribute('role', 'dialog');
   dialog.setAttribute('aria-modal', 'true');
   dialog.setAttribute('aria-labelledby', 'lupafinder-title');
@@ -47,7 +47,7 @@
   launcher.innerHTML = '<i class="ti ti-search" aria-hidden="true"></i><span class="lupafinder-launcher-label">Buscar</span><small>Ctrl K</small>';
   document.body.append(launcher);
 
-  nativeForm?.classList.add('lupafinder-native-hidden');
+
 
   const form = dialog.querySelector('form');
   const input = dialog.querySelector('.lupafinder-input');
@@ -101,7 +101,6 @@
     window.location.assign(url);
   });
 
-  window.setTimeout(open, 0);
   document.addEventListener('keydown', (event) => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); dialog.hidden ? open() : close(); }
   });

@@ -6,9 +6,9 @@ Autoria: **@DevGuijas - GitHub**
 
 ## Experiência
 
-- Oculta visualmente a lupa padrão do GLPI quando o plugin está ativo.
+- Mantém a lupa padrão do GLPI no topo, sem qualquer alteração nela.
 - Adiciona um botão flutuante elegante, disponível em todas as páginas autenticadas.
-- Abre automaticamente em cada página; use `Ctrl + K` (ou `⌘ K` no macOS) para ocultar ou exibir.
+- Abre pelo botão flutuante no canto inferior direito ou com `Ctrl + K` (ou `⌘ K` no macOS).
 - Pesquisa diretamente em **Chamados**, **Pessoas** ou na **Busca geral** do GLPI.
 - Tecla `Esc` e clique fora do painel fecham a janela.
 - Usa as páginas de busca oficiais do GLPI; permissões, entidades e visibilidade continuam sendo aplicadas pelo próprio GLPI.
