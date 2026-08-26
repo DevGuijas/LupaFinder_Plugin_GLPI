@@ -32,9 +32,9 @@
           <button class="lupafinder-tab" type="button" data-mode="people" aria-pressed="false"><i class="ti ti-users me-1"></i>Pessoas</button>
           <button class="lupafinder-tab" type="button" data-mode="all" aria-pressed="false"><i class="ti ti-world-search me-1"></i>Busca geral</button>
         </div>
-        <div class="lupafinder-meta"><span data-lupafinder-hint>Busca no título e na descrição dos chamados.</span><span>Enter para buscar · Esc para fechar</span></div>
+        <div class="lupafinder-meta"><span data-lupafinder-hint>Busca no título e na descrição dos chamados.</span></div>
         <p class="lupafinder-message" role="alert">Digite algo para iniciar a busca.</p>
-        <div class="lupafinder-actions"><span class="lupafinder-toggle-hint">Ctrl + K para ocultar</span><button class="btn btn-primary px-4" type="submit"><i class="ti ti-search me-1"></i>Buscar</button></div>
+        <div class="lupafinder-actions"><span class="lupafinder-toggle-hint">Enter para buscar · Esc para fechar</span><button class="btn btn-primary px-4" type="submit"><i class="ti ti-search me-1"></i>Buscar</button></div>
       </form>
     </div>`;
   document.body.append(dialog);
@@ -103,6 +103,14 @@
   });
 
   document.addEventListener('keydown', (event) => {
-    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); dialog.hidden ? open() : close(); }
+    if (event.key === 'Escape' && !dialog.hidden) {
+      event.preventDefault();
+      close();
+      return;
+    }
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault();
+      launcher.hidden = !launcher.hidden;
+    }
   });
 })();
