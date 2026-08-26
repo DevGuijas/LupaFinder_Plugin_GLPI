@@ -25,7 +25,7 @@
   dialog.innerHTML = `
     <div class="lupafinder-panel">
       <div class="lupafinder-head">
-        <div><p class="lupafinder-eyebrow">Lupa_Finder</p><h2 id="lupafinder-title">Encontre o que precisa</h2></div>
+        <div><p class="lupafinder-eyebrow">Busca simplificada</p><h2 id="lupafinder-title">Encontre o que precisa</h2></div>
         <button class="lupafinder-close" type="button" aria-label="Fechar busca"><i class="ti ti-x" aria-hidden="true"></i></button>
       </div>
       <form class="lupafinder-body" novalidate>
@@ -62,10 +62,62 @@
 
   const open = () => { dialog.hidden = false; document.body.classList.add('lupafinder-open'); window.setTimeout(() => input.focus(), 20); };
   const close = () => { dialog.hidden = true; document.body.classList.remove('lupafinder-open'); message.classList.remove('is-visible'); launcher.focus(); };
-  launcher.addEventListener('click', open);
+  let wasDragged = false;
+  let dragState = null;
+
+  launcher.addEventListener('pointerdown', (event) => {
+    if (event.button !== undefined && event.button !== 0) return;
+    const rect = launcher.getBoundingClientRect();
+    dragState = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      left: rect.left,
+      top: rect.top,
+    };
+    wasDragged = false;
+    launcher.classList.add('is-dragging');
+    launcher.setPointerCapture?.(event.pointerId);
+  });
+
+  launcher.addEventListener('pointermove', (event) => {
+    if (!dragState || event.pointerId !== dragState.pointerId) return;
+    const deltaX = event.clientX - dragState.startX;
+    const deltaY = event.clientY - dragState.startY;
+    if (Math.abs(deltaX) + Math.abs(deltaY) < 6) return;
+
+    wasDragged = true;
+    event.preventDefault();
+    const rect = launcher.getBoundingClientRect();
+    const left = Math.min(Math.max(8, dragState.left + deltaX), window.innerWidth - rect.width - 8);
+    const top = Math.min(Math.max(8, dragState.top + deltaY), window.innerHeight - rect.height - 8);
+    launcher.style.left = `${left}px`;
+    launcher.style.top = `${top}px`;
+    launcher.style.right = 'auto';
+    launcher.style.bottom = 'auto';
+  });
+
+  const endDrag = (event) => {
+    if (!dragState || event.pointerId !== dragState.pointerId) return;
+    if (launcher.hasPointerCapture?.(event.pointerId)) launcher.releasePointerCapture(event.pointerId);
+    dragState = null;
+    launcher.classList.remove('is-dragging');
+    if (wasDragged) window.setTimeout(() => { wasDragged = false; }, 0);
+  };
+  launcher.addEventListener('pointerup', endDrag);
+  launcher.addEventListener('pointercancel', endDrag);
+
+  launcher.addEventListener('click', (event) => {
+    if (wasDragged) {
+      event.preventDefault();
+      return;
+    }
+    open();
+  });
   dialog.querySelector('.lupafinder-close').addEventListener('click', close);
-
-
+  dialog.addEventListener('pointerdown', (event) => {
+    if (event.target === dialog) close();
+  });
   dialog.querySelectorAll('.lupafinder-tab').forEach((button) => button.addEventListener('click', () => {
     mode = button.dataset.mode;
     dialog.querySelectorAll('.lupafinder-tab').forEach((tab) => tab.setAttribute('aria-pressed', String(tab === button)));
