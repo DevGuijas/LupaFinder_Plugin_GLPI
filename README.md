@@ -20,3 +20,8 @@ Autoria: **@DevGuijas - GitHub**
 3. Atualize a página do GLPI (limpe o cache do navegador se necessário).
 
 O plugin não modifica o núcleo do GLPI e não cria tabelas. Ao desabilitá-lo, a lupa original volta automaticamente.
+
+
+## Estrutura pública do GLPI 11
+
+Os arquivos de interface ficam em public/css e public/js. Esta estrutura é obrigatória no GLPI 11 para que os assets do plugin sejam enviados ao navegador.

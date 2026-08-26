@@ -1,6 +1,6 @@
 <?php
 
-define('PLUGIN_LUPAFINDER_VERSION', '1.1.0');
+define('PLUGIN_LUPAFINDER_VERSION', '1.1.1');
 
 function plugin_init_lupafinder(): void
 {
