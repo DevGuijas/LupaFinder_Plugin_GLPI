@@ -2,6 +2,9 @@
 (() => {
   'use strict';
 
+  const init = () => {
+    if (document.getElementById('lupafinder-launcher')) return;
+
   const findPluginRoot = () => {
     const nativeForm = document.getElementById('global-search')?.closest('form');
     if (nativeForm?.action) {
@@ -41,6 +44,7 @@
 
   const launcher = document.createElement('button');
   launcher.className = 'lupafinder-launcher';
+  launcher.id = 'lupafinder-launcher';
   launcher.type = 'button';
   launcher.setAttribute('aria-haspopup', 'dialog');
   launcher.setAttribute('aria-label', 'Abrir Lupa Finder');
@@ -113,4 +117,11 @@
       launcher.hidden = !launcher.hidden;
     }
   });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+  } else {
+    init();
+  }
 })();
