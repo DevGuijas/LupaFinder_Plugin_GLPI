@@ -22,8 +22,8 @@
   dialog.innerHTML = `
     <div class="lupafinder-panel">
       <div class="lupafinder-head">
-        <div><p class="lupafinder-eyebrow">Lupa_Finder</p><h2 id="lupafinder-title">Encontre o que precisa</h2></div>
-        <span class="lupafinder-shortcut" aria-label="Use Ctrl K para ocultar">Ctrl K</span>
+        <div><p class="lupafinder-eyebrow">Busca simplificada</p><h2 id="lupafinder-title">Encontre o que precisa</h2></div>
+        <button class="lupafinder-close" type="button" aria-label="Fechar busca"><i class="ti ti-x" aria-hidden="true"></i></button>
       </div>
       <form class="lupafinder-body" novalidate>
         <div class="lupafinder-input-wrap"><i class="ti ti-search" aria-hidden="true"></i><input class="lupafinder-input" type="search" autocomplete="off" placeholder="Número do chamado, assunto ou nome da pessoa" aria-label="Termo para busca"></div>
@@ -59,6 +59,7 @@
   const open = () => { dialog.hidden = false; document.body.classList.add('lupafinder-open'); window.setTimeout(() => input.focus(), 20); };
   const close = () => { dialog.hidden = true; document.body.classList.remove('lupafinder-open'); message.classList.remove('is-visible'); launcher.focus(); };
   launcher.addEventListener('click', open);
+  dialog.querySelector('.lupafinder-close').addEventListener('click', close);
 
 
   dialog.querySelectorAll('.lupafinder-tab').forEach((button) => button.addEventListener('click', () => {

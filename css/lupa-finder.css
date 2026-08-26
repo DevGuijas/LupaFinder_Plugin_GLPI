@@ -2,7 +2,7 @@
 .lupafinder-native-hidden { display: none !important; }
 
 .lupafinder-launcher {
-  align-items: center; background: linear-gradient(135deg, #5b31e6, #1698d5); border: 0;
+  align-items: center; background: linear-gradient(135deg, #007c5a, #08a878); border: 0;
   border-radius: 999px; bottom: 1.5rem; box-shadow: 0 14px 32px rgba(54, 47, 143, .34);
   color: #fff; cursor: pointer; display: inline-flex; font: inherit; gap: .65rem;
   min-height: 54px; padding: .65rem 1.1rem; position: fixed; right: 1.5rem; z-index: 1080;
@@ -16,18 +16,18 @@
 .lupafinder-dialog[hidden] { display: none; }
 .lupafinder-dialog { align-items: flex-start; background: rgba(15, 17, 34, .58); display: flex; inset: 0; justify-content: center; overflow-y: auto; padding: min(12vh, 7rem) 1rem 2rem; position: fixed; z-index: 1100; }
 .lupafinder-panel { animation: lupafinder-arrive .2s ease-out; background: var(--tblr-bg-surface, #fff); border: 1px solid rgba(138, 128, 210, .22); border-radius: 20px; box-shadow: 0 24px 70px rgba(10, 12, 30, .38); max-width: 700px; overflow: hidden; width: 100%; }
-.lupafinder-head { align-items: flex-start; background: linear-gradient(120deg, #251774, #234b9b); color: #fff; display: flex; justify-content: space-between; padding: 1.25rem 1.4rem; }
+.lupafinder-head { align-items: flex-start; background: linear-gradient(120deg, #00664b, #07956d); color: #fff; display: flex; justify-content: space-between; padding: 1.25rem 1.4rem; }
 .lupafinder-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .09em; margin: 0 0 .3rem; opacity: .78; text-transform: uppercase; }
 .lupafinder-head h2 { color: #fff; font-size: 1.3rem; margin: 0; }
 .lupafinder-close { background: rgba(255,255,255,.12); border: 0; border-radius: .55rem; color: #fff; cursor: pointer; font-size: 1.25rem; height: 35px; width: 35px; }
 .lupafinder-body { padding: 1.25rem 1.4rem 1.4rem; }
-.lupafinder-input-wrap { align-items: center; border: 2px solid #a99be9; border-radius: 12px; display: flex; padding: 0 .85rem; transition: border-color .18s, box-shadow .18s; }
-.lupafinder-input-wrap:focus-within { border-color: #6541e8; box-shadow: 0 0 0 4px rgba(101,65,232,.13); }
-.lupafinder-input-wrap .ti { color: #6541e8; font-size: 1.35rem; }
+.lupafinder-input-wrap { align-items: center; border: 2px solid #7ccbad; border-radius: 12px; display: flex; padding: 0 .85rem; transition: border-color .18s, box-shadow .18s; }
+.lupafinder-input-wrap:focus-within { border-color: #008a63; box-shadow: 0 0 0 4px rgba(0,138,99,.14); }
+.lupafinder-input-wrap .ti { color: #008a63; font-size: 1.35rem; }
 .lupafinder-input { background: transparent; border: 0; color: var(--tblr-body-color, #1c1d2f); font-size: 1.05rem; min-height: 54px; outline: 0; padding: 0 .7rem; width: 100%; }
 .lupafinder-tabs { display: flex; gap: .5rem; margin: 1rem 0 .75rem; }
 .lupafinder-tab { background: transparent; border: 1px solid var(--tblr-border-color, #d9d9e6); border-radius: 999px; color: var(--tblr-secondary, #667085); cursor: pointer; font: inherit; padding: .45rem .8rem; }
-.lupafinder-tab[aria-pressed="true"] { background: #ede9ff; border-color: #7a59e6; color: #4426b5; font-weight: 700; }
+.lupafinder-tab[aria-pressed="true"] { background: #e4f5ed; border-color: #159469; color: #006a4d; font-weight: 700; }
 .lupafinder-meta { color: var(--tblr-secondary, #667085); display: flex; font-size: .87rem; gap: .6rem; justify-content: space-between; margin-top: .85rem; }
 .lupafinder-message { color: #bd3a3a; display: none; font-size: .9rem; margin: .8rem 0 0; }
 .lupafinder-message.is-visible { display: block; }
