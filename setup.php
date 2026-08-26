@@ -2,7 +2,7 @@
 
 use Glpi\Plugin\Hooks;
 
-define('PLUGIN_LUPAFINDER_VERSION', '1.0.0');
+define('PLUGIN_LUPAFINDER_VERSION', '1.0.1');
 
 function plugin_init_lupafinder(): void
 {

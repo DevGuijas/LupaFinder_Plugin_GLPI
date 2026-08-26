@@ -15,7 +15,7 @@
 
   const dialog = document.createElement('section');
   dialog.className = 'lupafinder-dialog';
-  dialog.hidden = true;
+  dialog.hidden = false;
   dialog.setAttribute('role', 'dialog');
   dialog.setAttribute('aria-modal', 'true');
   dialog.setAttribute('aria-labelledby', 'lupafinder-title');
@@ -23,7 +23,7 @@
     <div class="lupafinder-panel">
       <div class="lupafinder-head">
         <div><p class="lupafinder-eyebrow">Lupa_Finder</p><h2 id="lupafinder-title">Encontre o que precisa</h2></div>
-        <button class="lupafinder-close" type="button" aria-label="Fechar busca"><i class="ti ti-x"></i></button>
+        <span class="lupafinder-shortcut" aria-label="Use Ctrl K para ocultar">Ctrl K</span>
       </div>
       <form class="lupafinder-body" novalidate>
         <div class="lupafinder-input-wrap"><i class="ti ti-search" aria-hidden="true"></i><input class="lupafinder-input" type="search" autocomplete="off" placeholder="Número do chamado, assunto ou nome da pessoa" aria-label="Termo para busca"></div>
@@ -34,7 +34,7 @@
         </div>
         <div class="lupafinder-meta"><span data-lupafinder-hint>Busca no título e na descrição dos chamados.</span><span>Enter para buscar · Esc para fechar</span></div>
         <p class="lupafinder-message" role="alert">Digite algo para iniciar a busca.</p>
-        <div class="lupafinder-actions"><button class="btn btn-link" type="button" data-lupafinder-close>Cancelar</button><button class="btn btn-primary px-4" type="submit"><i class="ti ti-search me-1"></i>Buscar</button></div>
+        <div class="lupafinder-actions"><span class="lupafinder-toggle-hint">Ctrl + K para ocultar</span><button class="btn btn-primary px-4" type="submit"><i class="ti ti-search me-1"></i>Buscar</button></div>
       </form>
     </div>`;
   document.body.append(dialog);
@@ -59,9 +59,7 @@
   const open = () => { dialog.hidden = false; document.body.classList.add('lupafinder-open'); window.setTimeout(() => input.focus(), 20); };
   const close = () => { dialog.hidden = true; document.body.classList.remove('lupafinder-open'); message.classList.remove('is-visible'); launcher.focus(); };
   launcher.addEventListener('click', open);
-  dialog.querySelector('.lupafinder-close').addEventListener('click', close);
-  dialog.querySelector('[data-lupafinder-close]').addEventListener('click', close);
-  dialog.addEventListener('click', (event) => { if (event.target === dialog) close(); });
+
 
   dialog.querySelectorAll('.lupafinder-tab').forEach((button) => button.addEventListener('click', () => {
     mode = button.dataset.mode;
@@ -103,8 +101,8 @@
     window.location.assign(url);
   });
 
+  window.setTimeout(open, 0);
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !dialog.hidden) { event.preventDefault(); close(); }
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); dialog.hidden ? open() : close(); }
   });
 })();

@@ -34,3 +34,7 @@
 .lupafinder-actions { display: flex; gap: .65rem; justify-content: flex-end; margin-top: 1.2rem; }
 @keyframes lupafinder-arrive { from { opacity: 0; transform: translateY(-12px) scale(.985); } to { opacity: 1; transform: translateY(0) scale(1); } }
 @media (max-width: 575px) { .lupafinder-launcher { bottom: 1rem; padding: .7rem; right: 1rem; } .lupafinder-launcher .lupafinder-launcher-label, .lupafinder-launcher small { display: none; } .lupafinder-dialog { padding-top: 1rem; } .lupafinder-panel { border-radius: 14px; } .lupafinder-meta span:last-child { display: none; } }
+
+body.lupafinder-open { overflow: hidden; }
+.lupafinder-shortcut { align-self: center; background: rgba(255,255,255,.14); border-radius: .5rem; font-size: .78rem; font-weight: 700; padding: .35rem .5rem; }
+.lupafinder-toggle-hint { align-self: center; color: var(--tblr-secondary, #667085); font-size: .85rem; margin-right: auto; }
